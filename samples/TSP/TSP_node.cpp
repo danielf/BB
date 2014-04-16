@@ -112,7 +112,7 @@ double TSP_node::ub() {
 	return ans;
 }
 
-void TSP_node::branch(BB::computation* comp) {
+void TSP_node::branch() {
 	int choicei = -1, choicej;
 	const TSP_instance& instance = static_cast<const TSP_instance&>(this->_instance);
 	const int N = instance.getN();
@@ -123,8 +123,8 @@ void TSP_node::branch(BB::computation* comp) {
 		}
 	TSP_delta delta;
 	delta.value = choicei*N + choicej;
-	comp->emit(delta);
+	emit(delta);
 	delta.value = ~delta.value;
-	comp->emit(delta);
+	emit(delta);
 }
 

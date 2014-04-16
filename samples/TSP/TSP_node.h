@@ -10,7 +10,7 @@ class TSP_node : public BB::node {
 	public:
 		double lb();
 		double ub();
-		void branch(BB::computation* comp);
+		void branch();
 };
 
 #endif
